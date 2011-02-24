@@ -1,0 +1,14 @@
+\.svn
+classes
+syntax: regexp
+.metadata
+syntax: regexp
+settings
+syntax: regexp
+.project
+syntax: regexp
+^war
+
+
+syntax: regexp
+^src/ur/tools/cron/client/GwtCron\.java$
