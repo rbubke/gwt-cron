@@ -56,7 +56,7 @@ public class Clock {
 
     public int getDay() {
 
-        return this.getTimezoneCorrectedDate().getDate();
+        return this.getDate().getDate();
 
     }
 
@@ -73,9 +73,9 @@ public class Clock {
 
     public void setDay(final int day, final boolean reverse) {
 
-        final Date date = this.getTimezoneCorrectedDate();
+        final Date date = this.getDate();
         date.setDate( day );
-        this.setTimezoneCorrectedDate( date );
+        this.setDate( date );
 
         if (reverse) {
             this.setHour( 23, reverse );
@@ -96,9 +96,9 @@ public class Clock {
 
     public int getDaysInMonth() {
 
-        final int month = this.getTimezoneCorrectedDate().getMonth() + 1;
+        final int month = this.getDate().getMonth() + 1;
 
-        final int year = this.getTimezoneCorrectedDate().getYear() + 1900;
+        final int year = this.getDate().getYear() + 1900;
 
         switch (month) {
 
@@ -158,18 +158,18 @@ public class Clock {
 
     public int getDayOfWeek() {
 
-        return this.getTimezoneCorrectedDate().getDay();
+        return this.getDate().getDay();
 
     }
 
 
-    private Date getTimezoneCorrectedDate() {
+    private Date getDate() {
 
         return this.date;
     }
 
 
-    private void setTimezoneCorrectedDate(final Date date) {
+    private void setDate(final Date date) {
 
         this.date = date;
     }
@@ -185,17 +185,17 @@ public class Clock {
 
     public int getHour() {
 
-        return this.getTimezoneCorrectedDate().getHours();
+        return this.getDate().getHours();
 
     }
 
 
     public void setHour(final int hour, final boolean reverse) {
 
-        final Date date = this.getTimezoneCorrectedDate();
+        final Date date = this.getDate();
         date.setHours( hour );
 
-        this.setTimezoneCorrectedDate( date );
+        this.setDate( date );
 
         if (reverse) {
             this.setMinute( 59 );
@@ -232,7 +232,7 @@ public class Clock {
 
     public int getMinute() {
 
-        return this.getTimezoneCorrectedDate().getMinutes();
+        return this.getDate().getMinutes();
 
     }
 
@@ -249,9 +249,9 @@ public class Clock {
 
     public void setMinute(final int minute) {
 
-        final Date date = this.getTimezoneCorrectedDate();
+        final Date date = this.getDate();
         date.setMinutes( minute );
-        this.setTimezoneCorrectedDate( date );
+        this.setDate( date );
 
     }
 
@@ -266,7 +266,7 @@ public class Clock {
 
     public int getMonth() {
 
-        return this.getTimezoneCorrectedDate().getMonth() + 1;
+        return this.getDate().getMonth() + 1;
 
     }
 
@@ -286,9 +286,9 @@ public class Clock {
         if (!reverse) {
             this.setDay( 1, reverse );
         }
-        final Date date = this.getTimezoneCorrectedDate();
+        final Date date = this.getDate();
         date.setMonth( month - 1 );
-        this.setTimezoneCorrectedDate( date );
+        this.setDate( date );
 
         if (reverse) {
             this.setDay( this.getDaysInMonth(), reverse );
@@ -307,7 +307,7 @@ public class Clock {
 
     public void bumpYear(final boolean reverse) {
 
-        int year = this.getTimezoneCorrectedDate().getYear();
+        int year = this.getDate().getYear();
 
         if (reverse) {
             year -= 1;
@@ -316,9 +316,9 @@ public class Clock {
             year += 1;
         }
 
-        final Date date = this.getTimezoneCorrectedDate();
+        final Date date = this.getDate();
         date.setYear( year );
-        this.setTimezoneCorrectedDate( date );
+        this.setDate( date );
 
         if (reverse) {
             this.setMonth( 12, reverse );
